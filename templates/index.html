@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Generator</title>
+</head>
+<body style="text-align: center; margin-top: 50px;">
+    <h1>Email Generator</h1>
+    <button onclick="generateEmail()">Generate Email</button>
+
+    <p id="status"></p>
+
+    <script>
+        function generateEmail() {
+            fetch('/generate_email', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('status').innerText = data.message;
+                })
+                .catch(error => {
+                    document.getElementById('status').innerText = 'Error generating email!';
+                });
+        }
+    </script>
+</body>
+</html>
