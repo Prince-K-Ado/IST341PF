@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Email Generator</title>
+  <meta charset="UTF-8">
+  <title>Automated Email Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
 </head>
-<body style="text-align: center; margin-top: 50px;">
-    <h1>Email Generator</h1>
-    <button onclick="generateEmail()">Generate Email</button>
+<body class="bg-hero">
+  <div class="card-container">
 
-    <p id="status"></p>
+    <!-- APP TITLE -->
+    <h1 class="app-title">Automated Email Assistant</h1>
 
-    <script>
-        function generateEmail() {
-            fetch('/generate_email', { method: 'POST' })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('status').innerText = data.message;
-                })
-                .catch(error => {
-                    document.getElementById('status').innerText = 'Error generating email!';
-                });
-        }
-    </script>
+    <!-- 1) New Draft -->
+    <div class="card">
+      <h2>1. New Draft</h2>
+      <div id="draft-form" class="form-group">
+        <label for="entry-select">Recipient &amp; Category</label>
+        <select id="entry-select" class="form-control">
+          {% for entry in entries %}
+            <option
+              value="{{ entry.page_id }}"
+              data-recipient="{{ entry.recipient_email }}"
+              data-category="{{ entry.category }}"
+              data-job="{{ entry.job_description | escape }}"
+            >
+              {{ entry.recipient_email }} — {{ entry.category }}
+            </option>
+          {% endfor %}
+        </select>
+        <div class="button-group">
+          <button id="draft-button" type="button" class="btn">Generate Draft</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="draft-body">Generated Draft</label>
+        <textarea id="draft-body" class="form-control" rows="6" readonly></textarea>
+      </div>
+    </div>
+
+    <!-- 2) Refine & Approve -->
+    <div class="card">
+      <h2>2. Refine & Approve</h2>
+      <div id="chat-output" class="output-box"></div>
+      <div id="chat-form" class="form-group">
+        <label for="chat-input">Refinement Instruction</label>
+        <textarea id="chat-input" class="form-control" rows="3" placeholder="Type your refinement…"></textarea>
+        <div class="button-group">
+          <button id="chat-send-button" type="button" class="btn">Send to ChatGPT</button>
+        </div>
+      </div>
+      <div class="button-group">
+        <button id="approve-button" type="button" class="btn btn-primary">Approve &amp; Send</button>
+      </div>
+    </div>
+
+    <!-- 3) Sent Logs -->
+    <div class="card">
+      <h2>3. Sent Logs</h2>
+      <div id="logs-container" class="output-box">Loading…</div>
+    </div>
+
+  </div>
 </body>
 </html>

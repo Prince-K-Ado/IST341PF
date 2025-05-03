@@ -1,0 +1,132 @@
+/* 1) Full-bleed background */
+.bg-hero {
+  /* background: url('../images/bg.jpg') no-repeat center center fixed; */
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+body {
+  /* a soothing blue-purple gradient at a 135° angle */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) no-repeat center center fixed;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Center wrapper unchanged */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  min-height: 100%;
+}
+
+
+/* 2) Container that holds all cards */
+.card-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* 3) App title overlaid */
+.app-title {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* 4) Card style (translucent “glass” panel) */
+.card {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #333;
+}
+
+/* Headings */
+.card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+/* Form controls */
+.form-group {
+  margin-top: 12px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+textarea.form-control {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 4px 2px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+}
+.btn-primary {
+  background: #28a745;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Output boxes */
+.output-box {
+  max-height: 500px;
+  overflow-y: auto;
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+/* Logs table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+}
+.no-logs {
+  font-style: italic;
+  color: #666;
+}
