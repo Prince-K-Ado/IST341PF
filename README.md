@@ -33,7 +33,7 @@ A lightweight Flask web app that automates email drafting, refinement, approval,
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/automated-email-assistant.git
+git clone https://github.com/Prince-K-Ado/IST341PF.git
 cd automated-email-assistant
 ```
 
@@ -123,20 +123,7 @@ By default it will be available at http://127.0.0.1:5000/.
 
 📁 Project Structure
 
-.
-├── .env.example            # Template for your environment secrets
-├── app.py                  # Flask application & routes
-├── chatgpt_service.py      # GPT-4 integration
-├── notion_service.py       # Notion queries & page updates
-├── google_service.py       # Gmail API send logic
-├── requirements.txt        # Python dependencies
-├── templates/
-│   └── index.html          # Single-page UI
-└── static/
-    ├── css/
-    │   └── styles.css      # Styles (gradient, cards, buttons)
-    └── js/
-        └── main.js         # Front-end logic (fetch, render, events)
+![image](./static/dir.png)
 
 ⚙️ Deployment Tips
 
