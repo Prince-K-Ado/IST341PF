@@ -140,3 +140,4 @@ Push to your fork (git push origin feature/xyz)
 
 Open a Pull Request
 
+Happy emailing! 🚀
